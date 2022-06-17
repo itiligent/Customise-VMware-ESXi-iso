@@ -5,7 +5,7 @@
 #  / /___ ___/ /   |/ /  / / / / / / / /_/ / /_/ /  __/  / /_/ / /_/ / / / /_/ /  __/ /    
 # /_____//____/_/|_/_/  /_/_/ /_/ /_/\__,_/\__, /\___/  /_.___/\__,_/_/_/\__,_/\___/_/     
 #                                         /____/                                           
-# Get ESXi running on non HCL hardware. (Adds suport for most NVMEs & Intel consumer NICs) 
+# Get ESXi running on non HCL hardware. (Adds support for most NVMEs & Intel consumer NICs) 
 ##############################################################################################
 # David Harrop
 # April 2022
