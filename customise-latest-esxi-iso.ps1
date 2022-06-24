@@ -18,11 +18,14 @@
 # then run:
 # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 # Install-Module -Name VMware.PowerCLI -SkipPublisherCheck
+#
+# Uncomment lines marked ##@@ to enable USB drivers - this will not work with latest version
+# of iso export, but it should work for an exported bundle
 ##############################################################################################
 
 $baseESXiVer = "7"
 #Update the below driver file names manually. USB has compatibility issues so it is disbled at present 
-#$usbFling = "ESXi703-VMKUSB-NIC-FLING-51233328-component-18902399.zip"
+##@@$usbFling = "ESXi703-VMKUSB-NIC-FLING-51233328-component-18902399.zip"
 $nicFling = "Net-Community-Driver_1.2.7.0-1vmw.700.1.0.15843807_19480755.zip"
 $nvmeFling = "nvme-community-driver_1.0.1.0-3vmw.700.1.0.15843807-component-18902434.zip"
 
@@ -41,7 +44,7 @@ echo ""
 echo "Finishd retrieving latest ESXi Bundle"
 echo ""
 
-#if (!(Test-Path $usbFling)){Invoke-WebRequest -Method "GET" https://download3.vmware.com/software/vmw-tools/USBNND/$($usbFling) -OutFile $($usbFling)}
+##@@if (!(Test-Path $usbFling)){Invoke-WebRequest -Method "GET" https://download3.vmware.com/software/vmw-tools/USBNND/$($usbFling) -OutFile $($usbFling)}
 if (!(Test-Path $nicFling)){Invoke-WebRequest -Method "GET" https://download3.vmware.com/software/vmw-tools/community-network-driver/$($nicFling) -OutFile $($nicFling)}
 if (!(Test-Path $nvmeFling)){Invoke-WebRequest -Method "GET" https://download3.vmware.com/software/vmw-tools/community-nvme-driver/$($nvmeFling) -OutFile $($nvmeFling)}
 
@@ -64,7 +67,7 @@ echo ""
 echo "Injecting the extra drivers into the custom profile"
 echo ""
 
-#Add-EsxSoftwarePackage -ImageProfile $newProfile -SoftwarePackage "vmkusb-nic-fling" -Force
+##@@Add-EsxSoftwarePackage -ImageProfile $newProfile -SoftwarePackage "vmkusb-nic-fling" -Force
 Add-EsxSoftwarePackage -ImageProfile $newProfile -SoftwarePackage "net-community" -Force
 Add-EsxSoftwarePackage -ImageProfile $newProfile -SoftwarePackage "nvme-community" -Force
 
