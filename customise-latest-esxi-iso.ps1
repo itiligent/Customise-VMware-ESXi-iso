@@ -14,11 +14,11 @@
 # (You must be Administrator to install PowerCLI. 
 # No need to be administrator to run the rest)
 # 
-#Install VMware PowerCLI
-#Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
-#Install-Module -Name VMware.PowerCLI -SkipPublisherCheck
+# Install VMware PowerCLI
+# then run:
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+# Install-Module -Name VMware.PowerCLI -SkipPublisherCheck
 ##############################################################################################
-
 
 $baseESXiVer = "7"
 #Update the below driver file names manually. USB has compatibility issues so it is disbled at present 
